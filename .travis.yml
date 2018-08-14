@@ -2,7 +2,7 @@ language: python
 python:
     - "2.7"
 install:
-        - pip install --user -r requirements.txt
+    - pip install --user -r requirements.txt
     - python manage.py migrate
 script:
     - python manage.py check --deploy --fail-level WARNING
