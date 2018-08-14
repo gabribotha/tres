@@ -5,11 +5,13 @@ install:
     - pip install django==1.11
     - pip install requests
     - python manage.py migrate
-script:
-    - python manage.py runserver
+# script:
+#    - python manage.py runserver
 jobs:
     - include:
         - stage: "Tests"
+          name: "Initilize Tests"
+          script: python manage.py check --deploy --fail-level WARNING
           name: "Unit Tests"
           script: ./test 1
           name: "Integration Tests"
