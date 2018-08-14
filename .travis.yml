@@ -5,8 +5,8 @@ install:
     - pip install django==1.11
     - pip install requests
     - python manage.py migrate
-# script:
-#    - python manage.py runserver
+script:
+    - python manage.py runserver
 jobs:
     - include:
         - stage: "Tests"
