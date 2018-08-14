@@ -7,3 +7,13 @@ install:
     - python manage.py migrate
 script:
     - python manage.py runserver
+jobs:
+    - include:
+        - stage: "Tests"
+          name: "Unit Tests"
+          script: ./test 1
+          name: "Integration Tests"
+          script: ./test 2
+        - stage: deploy
+          name: "Deploy to GCP"
+          script: ./deploy
